@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+
+# Node
+**/node_modules/
+**/dist/
+**/.vite/
+
+# Java / Maven
+**/target/
+**/*.class
+**/*.log
+
+# IntelliJ / IDE
+**/.idea/
+**/*.iml
+
+# Local config / secrets
+**/application-dev.yml
+**/application-dev.yaml
+**/application-dev.properties
