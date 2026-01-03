@@ -1,0 +1,39 @@
+# Server configuration
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  # DataSource configuration (HikariCP - default connection pool in Spring Boot)
+  datasource:
+    # Explicitly specify HikariCP (optional, Spring Boot uses it by default)
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://localhost:3306/sm_db
+    username: root
+    password: douzi123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    # HikariCP connection pool settings
+    hikari:
+      pool-name: HikariPool
+      maximum-pool-size: 10          # Maximum number of connections in the pool
+      minimum-idle: 2                # Minimum number of idle connections
+      connection-timeout: 30000      # Maximum time to wait for a connection (ms)
+      idle-timeout: 600000           # Maximum idle time for a connection (ms)
+      max-lifetime: 1800000          # Maximum lifetime of a connection (ms)
+
+# MyBatis-Plus configuration
+mybatis-plus:
+  type-aliases-package: ie.jianfei.pojo
+  global-config:
+    db-config:
+      logic-delete-field: isDeleted  # Global logical delete field
+      id-type: auto                  # Primary key generation strategy (auto-increment)
+      table-prefix: news_             # Table name prefix
+
+#jwt config
+jwt:
+  token:
+    tokenExpiration: 120 #valid time, minutes
+    tokenSignKey: headline123456
